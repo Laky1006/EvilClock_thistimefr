@@ -1150,6 +1150,12 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 6f6b96c796714c24395a86729ec7066d, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  player: {fileID: 1598427436}
+  chaseSpeed: 1.33
+  jumpForce: 2.5
+  groundLayer:
+    serializedVersion: 2
+    m_Bits: 8
 --- !u!61 &822102503
 BoxCollider2D:
   m_ObjectHideFlags: 0
@@ -1211,7 +1217,7 @@ Rigidbody2D:
   m_Mass: 1
   m_LinearDamping: 0
   m_AngularDamping: 0.05
-  m_GravityScale: 1
+  m_GravityScale: 1.7
   m_Material: {fileID: 0}
   m_IncludeLayers:
     serializedVersion: 2
