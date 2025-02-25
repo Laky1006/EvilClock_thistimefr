@@ -11,7 +11,7 @@ public class LogicScript : MonoBehaviour
 
     public GameObject bar;
     public float maxTime = 10f;
-    float timeLeft;
+    public float timeLeft;
     void Start()
     {
         timeLeft = maxTime;
@@ -51,16 +51,19 @@ public class LogicScript : MonoBehaviour
         gameOn = false;
     }
 
-    void AddTime(int amount)
+    public void AddTime(int amount)
     {
         if ((timeLeft + amount) >= maxTime)
         {
             timeLeft = maxTime;
-        } else
+        } 
+        else 
         {
             timeLeft += amount;
         }
         
     }
+
+    
 
 }

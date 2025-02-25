@@ -1,3 +1,4 @@
+using System;
 using UnityEngine;
 
 public class EnemyPatrolControl : MonoBehaviour
@@ -8,6 +9,7 @@ public class EnemyPatrolControl : MonoBehaviour
     private Rigidbody2D rb;
     private Transform currentPoint;
     public float speed;
+
     // Start is called once before the first execution of Update after the MonoBehaviour is created
     void Start()
     {
@@ -23,7 +25,7 @@ public class EnemyPatrolControl : MonoBehaviour
         {
             rb.linearVelocity = new Vector2(speed, 0);
         } 
-        else
+        else if (currentPoint == pointA.transform)
         {
             rb.linearVelocity = new Vector2(-speed, 0);
         }

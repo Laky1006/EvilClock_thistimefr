@@ -1,3 +1,4 @@
+using System.Collections;
 using UnityEngine;
 using UnityEngine.InputSystem;
 
@@ -8,6 +9,8 @@ public class PlayerController : MonoBehaviour
     public Rigidbody2D rb;
     bool facingRight = true;
     bool isGrounded;
+    public LogicScript logic;
+    private SpriteRenderer sr;
     
 
     [Header("Movement")]
@@ -46,7 +49,7 @@ public class PlayerController : MonoBehaviour
     
     void Start()
     {
-        
+        sr = GetComponent<SpriteRenderer>();
     }
 
     // Update is called once per frame
@@ -191,6 +194,23 @@ public class PlayerController : MonoBehaviour
             transform.localScale = ls;
 
         }
+    }
+
+    private void OnTriggerEnter2D(Collider2D collision)
+    {
+        EnemyPatrolControl enemy = collision.GetComponent<EnemyPatrolControl>();
+        if (enemy)
+        {
+            logic.AddTime(-5);
+            StartCoroutine(FlashRed());
+        }
+    }
+
+    private IEnumerator FlashRed()
+    {
+        sr.color = Color.red;
+        yield return new WaitForSeconds(0.3f);
+        sr.color = Color.white;
     }
 
 }
